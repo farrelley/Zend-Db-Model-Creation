@@ -1,0 +1,24 @@
+Use at your own risk! :-)
+
+This script creates generates generic stubs of DbTable, Model, and Mapper files for Zend Framework.  It's a dirty script to get up and running quickly.
+Eventually I hope to get this into a Zend_Tool Provider.
+
+What the script does.
+Uses your default database adapter from your .ini file.
+Reads the databse tables and creates the files.
+
+This has to be run in an action and then can be removed.
+
+Create DbTables -> $db = new My_Scripts_DbTable();
+Create Models -> $db = new My_Scripts_DbModel();
+Create Mappers -> $db = new My_Scripts_DbMapper();
+
+Then just run the action.  This will create the mapper and DbTable directory if needed.
+The models folder must already be there.
+You might have to change the models dir to be writable by the web server.
+
+This is intended to get you about 85% - 90% there.  Not a 100% solution.  
+
+Add tickets if you see something wrong @ http://github.com/farrelley/Zend-Db-Model-Creation/issues
+
+Shaun Farrell
