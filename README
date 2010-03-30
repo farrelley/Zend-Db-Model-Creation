@@ -21,4 +21,9 @@ This is intended to get you about 85% - 90% there.  Not a 100% solution.
 
 Add tickets if you see something wrong @ http://github.com/farrelley/Zend-Db-Model-Creation/issues
 
+
+-- 03/30/2010
+1. The scripts now use application namespace instead of Application_  You must have a config file in application/configs/ named application.ini with appnamespace = "something here"
+
+
 Shaun Farrell
