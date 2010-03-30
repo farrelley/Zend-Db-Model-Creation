@@ -242,7 +242,7 @@ class My_Scripts_DbModel extends My_Scripts_ModelCreation
 		$mapperMethods[] = array(
 			'name' => 'getMapper',
 	        'body' => 'if (null === $this->_mapper) {' . "\n    " .
-				'$this->setMapper(new Application_Model_Mapper_' . $this->_tableName . '());' . "\n" .
+				'$this->setMapper(new ' . $this->_appNamespace . '_Model_Mapper_' . $this->_tableName . '());' . "\n" .
 				'}' . "\n" .
 				'return $this->_mapper;',
 			'docblock' => new Zend_CodeGenerator_Php_Docblock(array(
@@ -376,7 +376,7 @@ class My_Scripts_DbModel extends My_Scripts_ModelCreation
     		),
 		));
 		
-		$modelClass->setName('Application_Model_' . $this->_tableName )
+		$modelClass->setName($this->_appNamespace . '_Model_' . $this->_tableName )
     		->setDocblock($docblock)
     		->setProperties($this->_properties)
 			->setMethod($constructor)

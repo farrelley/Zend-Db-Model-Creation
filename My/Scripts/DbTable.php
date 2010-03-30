@@ -46,7 +46,7 @@ class My_Scripts_DbTable extends My_Scripts_ModelCreation
 	{
 		$this->_dbTableName = $this->fixTableName($table);
 		$dbTableClass = new Zend_CodeGenerator_Php_Class();
-		$dbTableClass->setName('Application_Model_DbTable_' . $this->_dbTableName)
+		$dbTableClass->setName($this->_appNamespace . '_Model_DbTable_' . $this->_dbTableName)
 			->setExtendedClass('Zend_Db_Table_Abstract')
     		->setProperties(array(
     			array(

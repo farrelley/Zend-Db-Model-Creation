@@ -101,7 +101,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 				),
 			),
 	        'body' => 'if (null === $this->_dbTable) {' . "\n    " .
-				'$this->setDbTable(\'Application_Model_DbTable_' . $this->_tableName . '\');' . "\n" .
+				'$this->setDbTable(\'' . $this->_appNamespace . '_Model_DbTable_' . $this->_tableName . '\');' . "\n" .
 				'}' . "\n" .
 				'return $this->_dbTable;',
 	        'docblock' => new Zend_CodeGenerator_Php_Docblock(array(
@@ -123,7 +123,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 	        'body' => '$resultSet = $this->getDbTable()->fetchAll();' . "\n" .
 				'$entries = array();' . "\n" .
 				'foreach ($resultSet AS $row) {' . "\n    " .
-				'$entry = new Application_Model_' . $this->_tableName . '();' . "\n    " .
+				'$entry = new ' . $this->_appNamespace . '_Model_' . $this->_tableName . '();' . "\n    " .
 				'$this->_populateModel($row, $entry);' . "\n    " .
 				'$entries[] = $entry;' . "\n" .
 				'}' . "\n" .
@@ -148,7 +148,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 			'parameters' => array(
 	        	array(
 	            	'name' => 'model',
-	        		'type' => 'Application_Model_' . $this->_tableName,
+	        		'type' => $this->_appNamespace . '_Model_' . $this->_tableName,
 				),
 			),
 	        'body' => '$this->getDbTable()->delete(array(\'' . $this->_primaryKey . ' = ?\' => $model->get' . $primaryGet . '()));',
@@ -174,7 +174,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 				),
 				array(
 	            	'name' => 'model',
-	        		'type' => 'Application_Model_' . $this->_tableName,
+	        		'type' => $this->_appNamespace . '_Model_' . $this->_tableName,
 				),
 			),
 	        'body' => '$result = $this->getDbTable()->find($id);' . "\n" . 
@@ -203,7 +203,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 			'parameters' => array(
 				array(
 	            	'name' => 'model',
-	        		'type' => 'Application_Model_' . $this->_tableName,
+	        		'type' => $this->_appNamespace . '_Model_' . $this->_tableName,
 				),
 			),
 	        'body' => $this->_insertSaveArray . "\n" . 
@@ -229,7 +229,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 			'parameters' => array(
 				array(
 	            	'name' => 'model',
-	        		'type' => 'Application_Model_' . $this->_tableName,
+	        		'type' => $this->_appNamespace . '_Model_' . $this->_tableName,
 				),
 			),
 	        'body' => $this->_insertSaveArray . "\n" .
@@ -292,7 +292,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 				),
 				array(
 	            	'name' => 'model',
-	        		'type' => 'Application_Model_' . $this->_tableName,
+	        		'type' => $this->_appNamespace . '_Model_' . $this->_tableName,
 				),
 			),
 	        'body' => $this->_populateSetters,
@@ -333,7 +333,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 		));
 		
 		
-		$mapperClass->setName('Application_Model_Mapper_' . $this->_tableName )
+		$mapperClass->setName($this->_appNamespace . '_Model_Mapper_' . $this->_tableName )
     		->setDocblock($docblock)
     		->setProperty(
     			array(

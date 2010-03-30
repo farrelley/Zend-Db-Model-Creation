@@ -4,6 +4,7 @@ class My_Scripts_ModelCreation
 	protected $_db;
 	protected $_dbVendor;
 	protected $_schema;
+	protected $_appNamespace;
 	
 	protected $_logWriter;
 	protected $_logger;
@@ -15,6 +16,11 @@ class My_Scripts_ModelCreation
 		$this->_logger->info('Logging Initialized <br />');
 		
 		$this->getDbAdapter();
+		
+		$this->_logger->info('Loading Application Config File <br />');
+		$config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini', APPLICATION_ENV);
+		$this->_appNamespace = $config->appnamespace;
+		$this->_logger->info('Using Namespace ' . $this->_appNamespace . '<br />');
 	}
 			
 	protected function getDbAdapter() 
