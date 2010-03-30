@@ -65,7 +65,7 @@ class My_Scripts_DbTable extends My_Scripts_ModelCreation
         if (null != $this->_schema) {
         	$dbTableClass->setProperty(
         		array(
-        			'name' => '_schmea',
+        			'name' => '_schema',
     	        	'visibility'   => 'protected',
 					'defaultValue' => $this->_schema,
         		)
