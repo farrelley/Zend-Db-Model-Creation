@@ -208,7 +208,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 			),
 	        'body' => $this->_insertSaveArray . "\n" . 
 				'$id = $this->getDbTable()->insert($data);' . "\n" . 
-				'$user->set' . $primaryGet . '($id);',
+				'$model->set' . $primaryGet . '($id);',
 	        'docblock' => new Zend_CodeGenerator_Php_Docblock(array(
 		    	'shortDescription' => 'insert',
 	    	    'tags' => array(
