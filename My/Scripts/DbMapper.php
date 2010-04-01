@@ -95,11 +95,6 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 		//getDbTable
 		$methods[] = array(
 			'name' => 'getDbTable',
-	        'parameters' => array(
-	        	array(
-	            	'name' => 'dbTable',
-				),
-			),
 	        'body' => 'if (null === $this->_dbTable) {' . "\n    " .
 				'$this->setDbTable(\'' . $this->_appNamespace . '_Model_DbTable_' . $this->_tableName . '\');' . "\n" .
 				'}' . "\n" .
