@@ -220,7 +220,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 	{
 		$primaryGet = $this->fixColumnName($this->_primaryKey, true);
 		$method = array(
-			'name' => 'save',
+			'name' => 'update',
 			'parameters' => array(
 				array(
 	            	'name' => 'model',
@@ -231,7 +231,7 @@ class My_Scripts_DbMapper extends My_Scripts_ModelCreation
 				'$id = $model->get' . $primaryGet . '();' . "\n" .
 				'$this->getDbTable()->update($data, array(\'' . $this->_primaryKey . ' = ?\' => $id));',
 	        'docblock' => new Zend_CodeGenerator_Php_Docblock(array(
-		    	'shortDescription' => 'save',
+		    	'shortDescription' => 'update',
 	    	    'tags' => array(
 	                new Zend_CodeGenerator_Php_Docblock_Tag_Return(array(
 	                	'datatype'  => 'object',

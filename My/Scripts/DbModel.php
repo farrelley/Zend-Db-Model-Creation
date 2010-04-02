@@ -295,10 +295,10 @@ class My_Scripts_DbModel extends My_Scripts_ModelCreation
 			)),
 		);
 		$mapperSQLMethods[] = array(
-			'name' => 'insert',
-	        'body' => '$this->getMapper()->insert($this);' . "\n" . 'return $this;',
+			'name' => 'add',
+	        'body' => '$this->getMapper()->add($this);' . "\n" . 'return $this;',
 			'docblock' => new Zend_CodeGenerator_Php_Docblock(array(
-			    'shortDescription' => 'insert',
+			    'shortDescription' => 'add',
 		    	'tags' => array(
 	            	new Zend_CodeGenerator_Php_Docblock_Tag_Return(array(
 		            	'datatype'  => 'object',
@@ -308,7 +308,7 @@ class My_Scripts_DbModel extends My_Scripts_ModelCreation
 		);
 		$mapperSQLMethods[] = array(
 			'name' => 'save',
-	        'body' => '$this->getMapper()->save($this);' . "\n" . 'return $this;',
+	        'body' => '$this->getMapper()->update($this);' . "\n" . 'return $this;',
 			'docblock' => new Zend_CodeGenerator_Php_Docblock(array(
 			    'shortDescription' => 'save',
 		    	'tags' => array(
